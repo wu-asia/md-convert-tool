@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101724" />
+    <title>KnowledgeSync Workspace</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="workspace">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">K</span><span>KnowledgeSync</span></div>
+        <div class="status"><span></span> Local workspace</div>
+      </header>
+
+      <section class="intro">
+        <p class="eyebrow">Knowledge import workspace</p>
+        <h1>Turn scattered material into clean, searchable notes.</h1>
+        <p>Import one public URL, a local Markdown or HTML path, or an exported Notion folder.</p>
+      </section>
+
+      <section class="converter card" aria-labelledby="convert-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">New conversion</p>
+            <h2 id="convert-heading">Choose a source</h2>
+          </div>
+          <span id="mode-label" class="mode-label">Web article</span>
+        </div>
+        <div class="mode-switch" role="group" aria-label="Source type">
+          <button class="mode active" data-mode="url">URL</button>
+          <button class="mode" data-mode="file">Local file</button>
+          <button class="mode" data-mode="notion">Notion export</button>
+        </div>
+        <label for="source">Source</label>
+        <div class="source-row">
+          <input id="source" type="text" placeholder="https://example.com/article" autocomplete="off" />
+          <button id="convert" class="primary">Convert</button>
+        </div>
+        <p id="source-help" class="hint">Paste a public HTTP(S) article URL.</p>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card activity-card">
+          <div class="section-heading compact"><div><p class="eyebrow">Activity</p><h2>Conversion output</h2></div></div>
+          <pre id="activity" aria-live="polite">Ready for a source.</pre>
+        </article>
+        <article class="card library-card">
+          <div class="section-heading compact"><div><p class="eyebrow">Knowledge base</p><h2>Saved notes</h2></div><span id="note-count" class="count">0</span></div>
+          <label class="visually-hidden" for="search">Search saved notes</label>
+          <input id="search" type="search" placeholder="Search title, source, or content" />
+          <div id="notes" class="notes" aria-live="polite"></div>
+        </article>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
