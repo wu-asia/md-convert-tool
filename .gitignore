@@ -6,3 +6,5 @@ __pycache__/
 .env.*
 *.log
 *.egg-info/
+build/
+dist/

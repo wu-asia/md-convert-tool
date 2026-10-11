@@ -7,6 +7,7 @@ import io
 import json
 from pathlib import Path
 from threading import Lock
+import sys
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
@@ -20,7 +21,7 @@ from main import add_source, import_notion_export
 
 HOST = "127.0.0.1"
 PORT = 8765
-ASSET_DIRECTORY = PROJECT_ROOT / "web"
+ASSET_DIRECTORY = Path(getattr(sys, "_MEIPASS", PROJECT_ROOT)) / "web"
 IMPORT_LOCK = Lock()
 
 
